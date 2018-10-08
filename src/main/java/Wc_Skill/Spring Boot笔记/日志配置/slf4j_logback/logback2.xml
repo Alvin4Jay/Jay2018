@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+SLF4J，即简单日志门面(Simple Logging Facade for Java)，不是具体的日志解决方案，它只服务于各种各样的日志系统。
+挑选一个具体的日志组件实现来完成日志的记录,如logback
+
+-->
+
+<configuration>
+    <!--<include resource="org/springframework/boot/logging/logback/base.xml"/>-->
+    <!--控制台-->
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg %n</pattern>
+        </encoder>
+    </appender>
+    <!--文件-->
+    <appender name="dailyRollingFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>logs/logback/logback2.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <FileNamePattern>rest-demo.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <!-- keep 30 days' worth of history -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg %n</Pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.springframework.web" level="DEBUG"/> <!--对某个包下的日志输出进行控制-->
+    <!--logger-->
+    <root>
+        <level value="INFO" />
+        <appender-ref ref="stdout" />
+        <appender-ref ref="dailyRollingFileAppender" />
+    </root>
+</configuration>

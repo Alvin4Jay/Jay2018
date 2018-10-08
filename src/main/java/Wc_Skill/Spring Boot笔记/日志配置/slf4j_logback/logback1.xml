@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+https://blog.csdn.net/johnson_moon/article/details/77532583
+https://blog.csdn.net/catoop/article/details/50501714
+
+SLF4J，即简单日志门面(Simple Logging Facade for Java)，不是具体的日志解决方案，它只服务于各种各样的日志系统。
+挑选一个具体的日志组件实现来完成日志的记录,如logback
+
+-->
+
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/><!--引用默认配置-->
+    <logger name="org.springframework.web" level="DEBUG"/> <!--定义对某个包下的log进行控制-->
+</configuration>

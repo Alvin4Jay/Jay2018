@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+https://www.jianshu.com/p/597d632f0f2c
+
+8个级别的log（除去OFF和ALL，可以说分为6个级别），优先级从高到低依次为
+OFF、FATAL、ERROR、WARN、INFO、DEBUG、TRACE、 ALL。
+如果将log level设置在某一个级别上，那么比此级别优先级高的log都能打印出来。
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+    <exclusions>
+        <exclusion>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-log4j2</artifactId>
+</dependency>
+
+-->
+
+<configuration>
+    <properties>
+        <!-- 每行log输出格式 -->
+        <property name="PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} |-%-5level [%thread] %c [%L] -| %msg%n</property>
+    </properties>
+
+    <appenders>
+        <!--控制台只输出level级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
+        <Console name="CONSOLE" target="system_out">
+            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${PATTERN}" />
+        </Console>
+
+        <File name="file" fileName="logs/app.log" append="true">  <!--true, 追加，而不是覆盖-->
+            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${PATTERN}"/>
+        </File>
+
+        <!--这个会打印出所有的信息，每次大小超过size，则这size大小的日志会自动存入按
+        年份-月份建立的文件夹下面并进行压缩，作为存档-->
+        <RollingFile name="RollingFile" fileName="logs/app/app.log"
+                     filePattern="log/app/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout pattern="${PATTERN}"/>
+            <SizeBasedTriggeringPolicy size="5MB"/>
+        </RollingFile>
+    </appenders>
+
+
+    <loggers>
+        <root level="info">
+            <appenderref ref="CONSOLE" />
+            <appenderref ref="file" />
+            <appenderref ref="RollingFile" />
+        </root>
+    </loggers>
+
+</configuration>

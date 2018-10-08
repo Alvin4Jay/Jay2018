@@ -1,0 +1,13 @@
+//1xx Informational
+
+100: "Continue"
+102: "Processing"
+103: "Checking"
+
+//2xx Success
+200: "Ok"
+201: "Created"
+202: "Accepted"
+
+//3xx Redirection
+302: "Found"
