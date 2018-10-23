@@ -56,4 +56,6 @@
 
      	   https://www.cnblogs.com/baiduboy/p/7278715.html
 
-14. 
+14. `Linux`开机详细流程
+
+    参考 http://www.cnblogs.com/f-ck-need-u/p/7100336.html
