@@ -1,4 +1,6 @@
-package javabasiscode;import java.util.ArrayList;
+package javabasiscode;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**

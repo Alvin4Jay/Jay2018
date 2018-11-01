@@ -1,4 +1,6 @@
-package javabasiscode; /**
+package javabasiscode;
+
+/**
  * Created by Jay on 2017/5/4.
  */
 public class SwitchTest {

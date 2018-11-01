@@ -1,4 +1,6 @@
-package javabasiscode;import java.io.*;
+package javabasiscode;
+
+import java.io.*;
 
 /**
  * 统计代码行数
