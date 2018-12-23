@@ -1,4 +1,4 @@
-package JDKSourceFileAnalysis.JUCLocks.AQS;
+package JavaMultiThread.ArtofConcurrencyProgramming.Chapter5;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;

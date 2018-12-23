@@ -12,6 +12,9 @@ public class UnsafeLockSupportTest {
 	public static void main(String[] args) throws InterruptedException {
 		ThreadPark threadPark = new ThreadPark("ThreadPark");
 		threadPark.start();
+
+		TimeUnit.SECONDS.sleep(5);
+
 		ThreadUnpark threadUnPark = new ThreadUnpark("ThreadUnpark", threadPark);
 		threadUnPark.start();
 
