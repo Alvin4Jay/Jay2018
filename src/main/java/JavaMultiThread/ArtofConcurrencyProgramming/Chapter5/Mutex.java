@@ -6,7 +6,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 
 /**
- * 自定义一个互斥锁
+ * 自定义一个互斥锁(独占锁)
  */
 public class Mutex implements Lock, java.io.Serializable {
 	/**
@@ -36,7 +36,7 @@ public class Mutex implements Lock, java.io.Serializable {
 		}
 
 		/**
-		 * 释放锁，将状态设置为0
+		 * 释放锁，将状态设置为0。只有在完全释放锁的时候，才会返回true。
 		 * @param releases 释放的数量
 		 * @return 成功true
 		 */

@@ -4,7 +4,7 @@ import JavaMultiThread.ArtofConcurrencyProgramming.Chapter4.$1.SleepUtils;
 import org.junit.Test;
 
 /**
- * TwinsLock Test
+ * TwinsLock Test (共享锁测试)
  *
  * @author xuanjian.xuwj
  */

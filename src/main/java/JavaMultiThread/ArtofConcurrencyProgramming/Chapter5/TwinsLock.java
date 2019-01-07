@@ -20,15 +20,19 @@ public class TwinsLock {
 			setState(count);
 		}
 
+		// 返回正数，获取成功，后续操作可能成功；返回0，获取成功，后续的获取会失败；返回负数，获取失败。
 		@Override
 		protected int tryAcquireShared(int arg) {
-			for (; ; ) {
+			// 自旋+CAS
+			for (;;) {
 				int nowCount = getState();
 				int newCount = nowCount - arg;
 				if (newCount < 0) {
+					// 失败
 					return -1;
 				}
 				if (compareAndSetState(nowCount, newCount)) {
+					// 大于等于0
 					return newCount;
 				}
 			}
@@ -36,7 +40,8 @@ public class TwinsLock {
 
 		@Override
 		protected boolean tryReleaseShared(int arg) {
-			for (; ; ) {
+			// 自旋+CAS
+			for (;;) {
 				int nowCount = getState();
 				int newCount = nowCount + arg;
 				if (compareAndSetState(nowCount, newCount)) {
@@ -45,7 +50,6 @@ public class TwinsLock {
 			}
 		}
 	}
-
 
 	public void lock() {
 		sync.acquireShared(1);

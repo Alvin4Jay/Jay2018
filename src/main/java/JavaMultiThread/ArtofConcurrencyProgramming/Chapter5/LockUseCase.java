@@ -4,7 +4,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * Lock使用
+ * Lock使用方式，如何获取锁、释放锁
  *
  * @author xuanjian.xuwj
  */
