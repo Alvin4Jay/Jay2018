@@ -1,4 +1,4 @@
-package JavaMultiThread.ArtofConcurrencyProgramming.Chapter5;
+package JavaMultiThread.ArtofConcurrencyProgramming.Chapter5.Lock;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;

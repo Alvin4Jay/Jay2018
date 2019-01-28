@@ -1,4 +1,5 @@
 # Java NIO
+# Java NIO
 
 ## 一、Java NIO 概述
 
@@ -8,7 +9,7 @@
 
 ​	所有的 IO 在NIO 中都从一个Channel 开始。Channel 有点像流。 数据可以从Channel读到Buffer中，也可以从Buffer 写到Channel中。
 
-![](http://pbku1z6p0.bkt.clouddn.com/nio-1.png?imageMogr2/auto-orient/thumbnail/x250/blur/1x0/quality/75|imageslim)
+![](https://alvin-jay.oss-cn-hangzhou.aliyuncs.com/practicesummary/nio-1.png?x-oss-process=style/markdown-pic)
 
 ​	Channel有FileChannel、DatagramChannel、SocketChannel、ServerSocketChannel等实现，这些通道涵盖了UDP 和 TCP 网络IO，以及文件IO。
 
@@ -20,7 +21,7 @@
 
 ​	以下是**在一个单线程中使用一个Selector处理3个Channel**的例子：
 
-![](http://pbku1z6p0.bkt.clouddn.com/nio-2.png?imageMogr2/auto-orient/thumbnail/x250/blur/1x0/quality/75|imageslim)
+![](https://alvin-jay.oss-cn-hangzhou.aliyuncs.com/practicesummary/nio-2.png?x-oss-process=style/markdown-pic)
 
 ​	**要使用Selector，得向Selector注册Channel，然后调用它的select()方法**。这个方法会一直**阻塞**到某个注册的通道有事件就绪。一旦这个方法返回，线程就可以处理这些事件，事件的例子有如**新连接进来(ServerSocketChannel  Accept)，数据接收(Read)**等。
 
@@ -115,7 +116,7 @@ aFile.close();
 
 ​	Buffer的工作机制与position、limit、capacity这三个属性密不可分。position和limit的含义取决于Buffer处在读模式还是写模式。不管Buffer处在什么模式，capacity的含义总是一样的。如下图所示：
 
-![](http://pbku1z6p0.bkt.clouddn.com/nio-3.png?imageMogr2/auto-orient/thumbnail/x250/blur/1x0/quality/75|imageslim)
+![](https://alvin-jay.oss-cn-hangzhou.aliyuncs.com/practicesummary/nio-3.png?x-oss-process=style/markdown-pic)
 
 - capacity:   作为一个内存块，Buffer有一个固定的大小值，也叫“capacity”。只能往里写capacity个byte、long，char等类型。一旦Buffer满了，需要将其清空才能继续往里写数据。
 - position:   当写数据到Buffer中时，position表示当前的位置。初始的position值为0.当一个byte、long等数据写到Buffer后， position会向前移动到下一个可插入数据的Buffer单元。position最大可为capacity – 1。 当读取数据时，也是从某个特定位置读。当将Buffer从写模式切换到读模式，position会被重置为0. 当从Buffer的position处读取数据时，position向前移动到下一个可读的位置。
@@ -127,7 +128,7 @@ aFile.close();
 
 ### 4.Buffer的分配
 
-​	要想获得一个Buffer对象首先要进行分配。 每一个Buffer类都有一个allocate方法。
+​	要想获得一个Buffer对象，首先要进行分配。 每一个Buffer类都有一个allocate方法。
 
 ```java
 ByteBuffer buf = ByteBuffer.allocate(48); // 48字节capacity的ByteBuffer
@@ -217,7 +218,7 @@ buffer.reset();  // 回到标记位置
 
 ​	是指数据从一个channel读取到多个buffer中。如下图所示：
 
-![](http://pbku1z6p0.bkt.clouddn.com/nio-4.png?imageMogr2/auto-orient/thumbnail/x250/blur/1x0/quality/75|imageslim)
+![](https://alvin-jay.oss-cn-hangzhou.aliyuncs.com/practicesummary/nio-4.png?x-oss-process=style/markdown-pic)
 
 ```java
 ByteBuffer header = ByteBuffer.allocate(128);
@@ -232,7 +233,7 @@ channel.read(bufferArray);
 
 ### 2.Gathering Writers
 
-![](http://pbku1z6p0.bkt.clouddn.com/nio-5.png?imageMogr2/auto-orient/thumbnail/x250/blur/1x0/quality/75|imageslim)
+![](https://alvin-jay.oss-cn-hangzhou.aliyuncs.com/practicesummary/nio-5.png?x-oss-process=style/markdown-pic)
 
 ​	是指数据从多个buffer写入到同一个channel。
 
@@ -257,7 +258,7 @@ channel.write(bufferArray);
 
 ​	仅用单个线程来处理多个Channels的好处是，只需要更少的线程来处理通道。事实上，可以只用一个线程处理所有的通道。对于操作系统来说，线程之间上下文切换的开销很大，而且每个线程都要占用系统的一些资源（如内存）。因此，使用的线程越少越好。下图是单线程使用一个Selector处理3个channel的示例图。
 
-![](http://pbku1z6p0.bkt.clouddn.com/nio-2.png?imageMogr2/auto-orient/thumbnail/x250/blur/1x0/quality/75|imageslim)
+![](https://alvin-jay.oss-cn-hangzhou.aliyuncs.com/practicesummary/nio-2.png?x-oss-process=style/markdown-pic)
 
 ### 2.Selector的创建与通道的注册
 
@@ -352,7 +353,7 @@ SelectionKey key = channel.register(selector, SelectionKey.OP_READ, theObject);
 
 ### 4.通过Selector选择Channel
 
-​	一旦向Selector注册了一或多个通道，就可以调用几个重载的select()方法。这些方法返回你所感兴趣的事件（如连接、接受、读或写）已经准备就绪的那些通道的个数。换句话说，如果你“读就绪”的通道感兴趣，select()方法会返回读事件已经就绪的那些通道。
+​	一旦向Selector注册了一或多个通道，就可以调用几个重载的select()方法。这些方法返回你所感兴趣的事件（如连接、接受、读或写）已经准备就绪的那些通道的个数。换句话说，如果对“读就绪”的通道感兴趣，select()方法会返回读事件已经就绪的那些通道。
 
 ```java
 int select();  // 阻塞到至少有一个通道在注册的事件上就绪了
@@ -528,7 +529,7 @@ long fileSize = channel.size();
 
 ####(3)truncate方法
 
-​	可以使用FileChannel.truncate()方法截取一个文件。截取文件时，文件将中指定长度后面的部分将被删除。
+​	可以使用FileChannel.truncate()方法截取一个文件。截取文件时，文件s中指定长度后面的部分将被删除。
 
 ```java
 channel.truncate(1024); // 截取文件的前1024个字节
@@ -750,7 +751,7 @@ int bytesWritten = channel.write(buf);
 
 ​	Java NIO **管道**是**2个线程之间的单向数据连接**。`Pipe`有一个source通道和一个sink通道。<u>数据会被写到sink通道，从source通道读取。</u>Pipe原理如下：
 
-![](http://pbku1z6p0.bkt.clouddn.com/nio-6.png?imageMogr2/auto-orient/thumbnail/x250/blur/1x0/quality/75|imageslim)
+![](https://alvin-jay.oss-cn-hangzhou.aliyuncs.com/practicesummary/nio-6.png)
 
 ### 1.创建管道
 

@@ -1,4 +1,4 @@
-package JavaMultiThread.ArtofConcurrencyProgramming.Chapter5;
+package JavaMultiThread.ArtofConcurrencyProgramming.Chapter5.AQS;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;

@@ -1,4 +1,4 @@
-package JavaMultiThread.ArtofConcurrencyProgramming.Chapter5;
+package JavaMultiThread.ArtofConcurrencyProgramming.Chapter5.AQS;
 
 import JavaMultiThread.ArtofConcurrencyProgramming.Chapter4.$1.SleepUtils;
 import org.junit.Test;
