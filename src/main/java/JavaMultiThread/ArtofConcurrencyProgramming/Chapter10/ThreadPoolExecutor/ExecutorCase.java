@@ -1,10 +1,10 @@
-package JDKSourceFileAnalysis.ThreadPool;
+package JavaMultiThread.ArtofConcurrencyProgramming.Chapter10.ThreadPoolExecutor;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- *
+ * Executors工厂方法测试
  */
 public class ExecutorCase {
 

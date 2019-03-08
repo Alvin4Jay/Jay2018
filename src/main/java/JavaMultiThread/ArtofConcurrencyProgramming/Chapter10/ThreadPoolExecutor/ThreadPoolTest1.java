@@ -1,4 +1,4 @@
-package JDKSourceFileAnalysis.ThreadPool;
+package JavaMultiThread.ArtofConcurrencyProgramming.Chapter10.ThreadPoolExecutor;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -8,7 +8,7 @@ import java.util.concurrent.Executors;
  */
 public class ThreadPoolTest1 {
     public static void main(String[] args) {
-        ExecutorService pool = Executors.newFixedThreadPool(2); //创建线程池
+		ExecutorService pool = Executors.newFixedThreadPool(2); //创建线程池 固定大小
         for (int i = 0; i < 5; i++) {
             pool.submit(new MyThread()); //提交任务
         }

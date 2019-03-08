@@ -1,9 +1,9 @@
-package JDKSourceFileAnalysis.ThreadPool;
+package JavaMultiThread.ArtofConcurrencyProgramming.Chapter10.ThreadPoolExecutor;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- *  ThreadPoolExecutor 状态字段
+ *  ThreadPoolExecutor 状态字段测试
  */
 public class ThreadPoolTest2 {
     private static final int COUNT_BITS = Integer.SIZE - 3;  //29
