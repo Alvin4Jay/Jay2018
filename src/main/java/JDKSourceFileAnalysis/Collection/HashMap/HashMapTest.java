@@ -5,7 +5,7 @@ import java.util.Hashtable;
 import java.util.Map;
 
 /**
- * Created by Jay on 2017/5/29.
+ * HashMap测试
  */
 public class HashMapTest {
     public static void main(String[] args) {
@@ -20,10 +20,13 @@ public class HashMapTest {
 
         //HashTable K V不能为null
         Hashtable<String, String> ht = new Hashtable<>();
-        ht.put("123", null);
-        ht.put(null, "123");
+		//        ht.put("123", null);
+		//        ht.put(null, "123");
 
-    }
+		System.out.println(tableSizeFor(18));
+
+
+	}
 
     //计算大于cap的2的幂次
     static final int tableSizeFor(int cap) {
