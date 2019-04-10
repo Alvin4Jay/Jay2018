@@ -20,5 +20,11 @@
  * Listing 3-9 Future、Callback and Executor {@link JavaNetworkProgramming.chapter3.MultiThreadMaxFinder}
  *
  * Listing 3-11 LogFile {@link JavaNetworkProgramming.chapter3.LogFile}
+ *
+ * Listing 3-12 Join Thread {@link JavaNetworkProgramming.chapter3.JoinDigestUserInterface}
+ *
+ * Listing 3-13 GzipRunnable {@link JavaNetworkProgramming.chapter3.GzipRunnable}
+ *
+ * Listing 3-14 The GZipThread user interface class {@link JavaNetworkProgramming.chapter3.JoinDigestUserInterface}
  */
 package JavaNetworkProgramming.chapter3;
