@@ -53,7 +53,7 @@ public class HttpUtil {
 		return "error";
 	}
 
-	static public String httpGet(String url, Map<String, String> headers, Map<String, String> paramValues,
+	public static String httpGet(String url, Map<String, String> headers, Map<String, String> paramValues,
 			String encoding, long readTimeoutMs) throws IOException {
 		String encodedContent = encodingParams(paramValues, encoding);
 		url += (null == encodedContent) ? "" : ("?" + encodedContent);
@@ -84,7 +84,7 @@ public class HttpUtil {
 		}
 	}
 
-	static public String httpPost(String url, Map<String, String> headers, Map<String, String> paramValues,
+	public static String httpPost(String url, Map<String, String> headers, Map<String, String> paramValues,
 			String encoding, long readTimeoutMs) throws IOException {
 		String encodedContent = encodingParams(paramValues, encoding);
 
@@ -149,7 +149,7 @@ public class HttpUtil {
 		}
 	}
 
-	static private void setJSONHeaders(HttpURLConnection conn, Map<String, String> headers, String encoding) {
+	private static void setJSONHeaders(HttpURLConnection conn, Map<String, String> headers, String encoding) {
 		if (null != headers) {
 			for (Iterator<String> iter = headers.keySet().iterator(); iter.hasNext(); ) {
 				String key = iter.next();
@@ -159,7 +159,7 @@ public class HttpUtil {
 		conn.addRequestProperty("Content-Type", "application/json;charset=" + encoding);
 	}
 
-	static private void setHeaders(HttpURLConnection conn, Map<String, String> headers, String encoding) {
+	private static void setHeaders(HttpURLConnection conn, Map<String, String> headers, String encoding) {
 		if (null != headers) {
 			for (Iterator<String> iter = headers.keySet().iterator(); iter.hasNext(); ) {
 				String key = iter.next();
@@ -169,7 +169,7 @@ public class HttpUtil {
 		conn.addRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=" + encoding);
 	}
 
-	static private String encodingParams(Map<String, String> urlParams, String encoding)
+	private static String encodingParams(Map<String, String> urlParams, String encoding)
 			throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
 		if (null == urlParams) {
@@ -187,19 +187,19 @@ public class HttpUtil {
 		return sb.toString();
 	}
 
-	static public String toString(InputStream input, String encoding) throws IOException {
+	public static String toString(InputStream input, String encoding) throws IOException {
 		return (null == encoding) ?
 				toString(new InputStreamReader(input)) :
 				toString(new InputStreamReader(input, encoding));
 	}
 
-	static public String toString(Reader reader) throws IOException {
+	public static String toString(Reader reader) throws IOException {
 		CharArrayWriter sw = new CharArrayWriter();
 		copy(reader, sw);
 		return sw.toString();
 	}
 
-	static public long copy(Reader input, Writer output) throws IOException {
+	public static long copy(Reader input, Writer output) throws IOException {
 		char[] buffer = new char[1 << 12];
 		long count = 0;
 		for (int n = 0; (n = input.read(buffer)) >= 0; ) {
@@ -209,8 +209,8 @@ public class HttpUtil {
 		return count;
 	}
 
-	static public String getUrl(String host, String port, String relativePath) {
-		return new StringBuilder().append("http://").append(host + ":" + port).append(relativePath).toString();
+	public static String getUrl(String host, String port, String relativePath) {
+		return "http://" + host + ":" + port + relativePath;
 	}
 
 }
