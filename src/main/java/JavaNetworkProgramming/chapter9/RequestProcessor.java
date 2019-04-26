@@ -59,7 +59,7 @@ public class RequestProcessor implements Runnable {
 			String[] tokens = get.split("\\s+");
 			String method = tokens[0];
 			String version = "";
-			if (method.equals("GET")) {
+			if ("GET".equals(method)) {
 				String fileName = tokens[1];
 				if (fileName.endsWith("/")) {
 					fileName += indexFileName;
@@ -105,7 +105,7 @@ public class RequestProcessor implements Runnable {
 		} finally {
 			try {
 				connection.close();
-			} catch (IOException ex) {}
+			} catch (IOException ignored) {}
 		}
 	}
 

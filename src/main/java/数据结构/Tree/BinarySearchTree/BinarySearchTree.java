@@ -312,7 +312,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
     }
 
     //找到n的中序后继节点
-    public BinarySearchTreeNode<T> successor(BinarySearchTreeNode<T> n){
+	private BinarySearchTreeNode<T> successor(BinarySearchTreeNode<T> n) {
             if( n == null) return null;
             if( n.getRight() == null ) return null;
 
@@ -320,7 +320,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
     }
 
     //查找n树的最小值
-    public BinarySearchTreeNode<T> findMin(BinarySearchTreeNode<T> n){
+	private BinarySearchTreeNode<T> findMin(BinarySearchTreeNode<T> n) {
         if(n == null) return null;
 
         BinarySearchTreeNode<T> current = n;
@@ -332,7 +332,9 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
 
     //查找n树的最大值
     public BinarySearchTreeNode<T> findMax(BinarySearchTreeNode<T> n){
-        if(n == null) return null;
+		if (n == null) {
+			return null;
+		}
 
         BinarySearchTreeNode<T> current = n;
         while(current.getRight() != null){
