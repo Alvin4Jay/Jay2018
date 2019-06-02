@@ -1,5 +1,6 @@
 package JDKSourceFileAnalysis.JUCCollection.CopyOnWriteArrayList;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -8,9 +9,12 @@ import java.util.concurrent.CopyOnWriteArrayList;
  *  CopyOnWriteArrayListTest测试
  */
 public class CopyOnWriteArrayListTest {
-    // TODO: list是ArrayList对象时，程序会出错。
-    //private static List<String> list = new ArrayList<String>();
-    private static List<String> list = new CopyOnWriteArrayList<String>();
+
+    // list是ArrayList对象时，程序会出错。
+//    private static List<String> list = new ArrayList<String>();
+
+    private static List<String> list = new CopyOnWriteArrayList<>();
+
     public static void main(String[] args) {
 
         // 同时启动两个线程对list进行操作！
@@ -18,6 +22,9 @@ public class CopyOnWriteArrayListTest {
         new MyThread("tb").start();
     }
 
+    /**
+     * 迭代遍历
+     */
     private static void printAll() {
         String value = null;
         Iterator iter = list.iterator();
