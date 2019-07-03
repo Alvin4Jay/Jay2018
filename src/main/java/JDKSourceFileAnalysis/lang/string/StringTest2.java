@@ -1,4 +1,4 @@
-package JDKSourceFileAnalysis.lang;
+package JDKSourceFileAnalysis.lang.string;
 
 /**
  * String Test
