@@ -3218,5 +3218,4 @@ protected void finishRefresh() {
 
 ## TODO
 
-- Bean循环依赖及解决办法
 - ConfigurationClassPostProcessor分析(重点)
