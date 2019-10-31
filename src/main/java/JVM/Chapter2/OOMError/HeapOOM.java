@@ -8,6 +8,7 @@ import java.util.List;
  *  VM Args: -Xms20m -Xmx20m -XX:+HeapDumpOnOutOfMemoryError
  */
 public class HeapOOM {
+    // 一个对象16B=对象头12(8+4)+对齐填充4
     static class OOMObject{
 
     }

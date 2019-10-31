@@ -1,4 +1,4 @@
-package JVM.Chapter8.$82.LocalVariableTable;
+package JVM.Chapter8.p82.LocalVariableTable;
 
 /**
  * 局部变量表Slot复用对垃圾收集的影响

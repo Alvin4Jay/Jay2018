@@ -1,4 +1,4 @@
-package JVM.Chapter8.$83;
+package JVM.Chapter8.p83;
 
 /**
  * 单分派与多分派
@@ -6,14 +6,15 @@ package JVM.Chapter8.$83;
 public class Dispatch {
     static class QQ {}
 
-    static class _360 {}
+    static class Q360 {
+    }
 
     public static class Father {
         public void hardChoice(QQ arg) {
             System.out.println("father choose qq");
         }
 
-        public void hardChoice(_360 arg) {
+        public void hardChoice(Q360 arg) {
             System.out.println("father choose 360");
         }
     }
@@ -25,7 +26,7 @@ public class Dispatch {
         }
 
         @Override
-        public void hardChoice(_360 arg) {
+        public void hardChoice(Q360 arg) {
             System.out.println("son choose 360");
         }
     }
@@ -33,7 +34,7 @@ public class Dispatch {
     public static void main(String[] args) {
         Father father = new Father();
         Father son = new Son();
-        father.hardChoice(new _360());
+        father.hardChoice(new Q360());
         son.hardChoice(new QQ());
     }
 }

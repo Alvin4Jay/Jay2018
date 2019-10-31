@@ -1,7 +1,7 @@
 package JVM.Chapter6;
 
 public class TestClass {
-    private int m;
+    private static final int m = 123;
 
     public int inc() {
         return m + 1;

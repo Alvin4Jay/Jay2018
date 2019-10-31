@@ -2,6 +2,8 @@ package JVM.Chapter12;
 
 /**
  *  volatile变量的运算
+ *
+ *  VM参数：-XX:+UnlockDiagnosticVMOptions -XX:+PrintAssembly  查看汇编代码
  */
 public class VolatileTest {
 
@@ -13,7 +15,7 @@ public class VolatileTest {
 
     private static final int THREAD_COUNT = 20;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Thread[] threads = new Thread[THREAD_COUNT];
 
         for (int i = 0; i < THREAD_COUNT; i++) {
@@ -29,8 +31,11 @@ public class VolatileTest {
         }
 
         //等待所有累加线程执行完毕
-        while(Thread.activeCount() > 1){
-            Thread.yield();
+//        while(Thread.activeCount() > 1){
+//            Thread.yield();
+//        }
+        for (Thread thread : threads) {
+            thread.join();
         }
 
         System.out.println(race);

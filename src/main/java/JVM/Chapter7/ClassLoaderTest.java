@@ -27,7 +27,7 @@ public class ClassLoaderTest {
             }
         };
 
-        Object obj = myLoader.loadClass("Chapter7.ClassLoaderTest").newInstance();
+        Object obj = myLoader.loadClass("JVM.Chapter7.ClassLoaderTest").newInstance();
 
         System.out.println(obj.getClass()); //自定义类加载器加载
         System.out.println(obj instanceof ClassLoaderTest); //系统类加载器加载

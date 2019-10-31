@@ -1,4 +1,4 @@
-package JVM.Chapter8.$83;
+package JVM.Chapter8.p83;
 
 /**
  *  静态方法解析

@@ -1,4 +1,4 @@
-package JVM.Chapter8.$83;
+package JVM.Chapter8.p83;
 
 /**
  * Created by Jay on 2017/6/12.

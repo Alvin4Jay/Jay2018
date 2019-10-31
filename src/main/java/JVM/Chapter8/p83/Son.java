@@ -1,4 +1,4 @@
-package JVM.Chapter8.$83;
+package JVM.Chapter8.p83;
 
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
@@ -13,7 +13,8 @@ public class Son extends Father {
         try {
             MethodType mt = MethodType.methodType(void.class);
 
-            MethodHandle mh = MethodHandles.lookup().findSpecial(GrandFather.class, "thinking", mt, this.getClass());
+            MethodHandle mh = MethodHandles.lookup().findSpecial(GrandFather.class,
+                    "thinking", mt, this.getClass());
 
             mh.invoke(this);
 

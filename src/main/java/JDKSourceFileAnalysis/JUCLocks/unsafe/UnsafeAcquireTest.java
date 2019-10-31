@@ -17,7 +17,7 @@ public class UnsafeAcquireTest {
 		// 可以通过反射获取
 		Field theUnsafe = Unsafe.class.getDeclaredField("theUnsafe");
 		theUnsafe.setAccessible(true);
-		// Unsafe unsafe = (Unsafe) theUnsafe.get(Unsafe.class);
+//		 Unsafe unsafe = (Unsafe) theUnsafe.get(Unsafe.class);
 		 Unsafe unsafe = (Unsafe) theUnsafe.get(null);
 		System.out.println(unsafe);
 	}

@@ -15,4 +15,16 @@ public class TestClass2 {
             x = 3;
         }
     }
+
+    void onlyMe(final Object lock) {
+        synchronized (lock) {
+
+        }
+    }
+
+    synchronized void onlyYou() {
+        System.out.println("onlyYou");
+    }
+
+
 }

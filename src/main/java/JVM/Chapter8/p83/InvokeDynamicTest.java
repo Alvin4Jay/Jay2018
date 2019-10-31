@@ -1,4 +1,4 @@
-package JVM.Chapter8.$83;
+package JVM.Chapter8.p83;
 
 import static java.lang.invoke.MethodHandles.lookup;
 
@@ -8,6 +8,9 @@ import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
 
+/**
+ * invokedynamic指令演示
+ */
 public class InvokeDynamicTest {
 
     public static void main(String[] args) throws Throwable {
@@ -15,20 +18,22 @@ public class InvokeDynamicTest {
     }
 
     public static void testMethod(String s) {
-        System.out.println("hello String:" + s);
+        System.out.println("hello String: " + s);
     }
+
     //引导方法，找到真正要调用的方法
     public static CallSite BootstrapMethod(MethodHandles.Lookup lookup, String name, MethodType mt) throws Throwable {
         return new ConstantCallSite(lookup.findStatic(InvokeDynamicTest.class, name, mt));
     }
 
-    //引导方法句柄
+    //引导方法类型
     private static MethodType MT_BootstrapMethod() {
         return MethodType
                 .fromMethodDescriptorString(
                         "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;",
                         null);
     }
+
     private static MethodHandle MH_BootstrapMethod() throws Throwable {
         return lookup().findStatic(InvokeDynamicTest.class, "BootstrapMethod", MT_BootstrapMethod());
     }

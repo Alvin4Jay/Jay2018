@@ -1,4 +1,4 @@
-package JVM.Chapter8.$82.LocalVariableTable;
+package JVM.Chapter8.p82.LocalVariableTable;
 
 /**
  * Created by Jay on 2017/6/8.

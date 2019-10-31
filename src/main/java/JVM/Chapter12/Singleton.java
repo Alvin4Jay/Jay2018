@@ -17,8 +17,20 @@ public class Singleton {
         return instance;
     }
 
-    public static void main(String[] args){
-        Singleton.getInstance();
+    public static void main(String[] args) throws InterruptedException {
+        Thread[] threads = new Thread[10];
+
+        for (int i = 0; i < threads.length; i++) {
+            threads[i] = new Thread(() -> {
+                getInstance();
+            });
+            threads[i].start();
+        }
+
+        for (Thread thread : threads) {
+            thread.join();
+        }
+        System.out.println("end...");
     }
 
 }

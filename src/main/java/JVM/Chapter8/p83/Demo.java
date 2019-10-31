@@ -1,4 +1,4 @@
-package JVM.Chapter8.$83;
+package JVM.Chapter8.p83;
 
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
@@ -18,6 +18,8 @@ public class Demo {
 
         //调用
         System.out.println(mh.invoke(1, 3));
+
+        int[][][] array = new int[1][2][-1];
 
     }
 }
