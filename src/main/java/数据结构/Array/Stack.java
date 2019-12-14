@@ -13,13 +13,13 @@ public class Stack {
 
 	//出栈
 	public Object pop(){
-		if(elementData.size() == 0) throw new NoSuchElementException("Stack Underflow");
+		if(elementData.size() == 0) throw new NoSuchElementException("StackIteration Underflow");
 		return elementData.remove(elementData.size()-1);
 	}
 
 	//栈顶元素
 	public Object peek(){
-		if(elementData.size() == 0) throw new NoSuchElementException("Stack Underflow");
+		if(elementData.size() == 0) throw new NoSuchElementException("StackIteration Underflow");
 		return elementData.get(elementData.size()-1);
 	}
 

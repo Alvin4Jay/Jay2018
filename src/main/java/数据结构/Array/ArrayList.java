@@ -52,7 +52,7 @@ public class ArrayList implements List {
 
 		@Override
 		public Object next() {
-			if(size() == 0) throw new NoSuchElementException("Stack Underflow");
+			if(size() == 0) throw new NoSuchElementException("StackIteration Underflow");
 			return elementData[i++];
 		}
 	}

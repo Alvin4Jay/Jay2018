@@ -38,7 +38,7 @@ public class Ex7_ListPalindrome {
         if(pHead == null){
             return false;
         }
-        Stack<ListNode> stack = new Stack<ListNode>();
+        StackIteration<ListNode> stack = new StackIteration<ListNode>();
         ListNode fast = pHead;
         ListNode slow = pHead;
         while(fast != null){

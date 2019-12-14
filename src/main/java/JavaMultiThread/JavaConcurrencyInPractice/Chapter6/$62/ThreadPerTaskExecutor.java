@@ -1,7 +1,5 @@
 package JavaMultiThread.JavaConcurrencyInPractice.Chapter6.$62;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.concurrent.Executor;
 
 /**
@@ -9,7 +7,7 @@ import java.util.concurrent.Executor;
  */
 public class ThreadPerTaskExecutor implements Executor{
     @Override
-    public void execute(@NotNull Runnable command) {
+    public void execute( Runnable command) {
         new Thread(command).start();
     }
 }

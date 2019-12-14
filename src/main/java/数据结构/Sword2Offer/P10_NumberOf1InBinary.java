@@ -14,7 +14,6 @@ public class P10_NumberOf1InBinary {
         return count;
     }
 
-
     //位运算，n二进制有几位flag就移动几次
     public static int NumberOf1_2(int n){
         int count = 0;
