@@ -1,6 +1,5 @@
 package 数据结构.sort;
 
-import java.io.IOException;
 import java.util.Arrays;
 
 public class Sort {
