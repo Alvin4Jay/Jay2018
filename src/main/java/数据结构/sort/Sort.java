@@ -99,6 +99,29 @@ public class Sort {
         }
     }
 
+    public static void heap_sort2(int[] nums) {
+        if (nums == null || nums.length <= 1) return;
+        int N = nums.length;
+        for (int k = (N-2)/2; k>=0; k--) {
+            sink2(nums, k, N);
+        }
+        while(N > 1) {
+            swap(nums, 0, N-1);
+            N--;
+            sink2(nums, 0, N);
+        }
+    }
+
+    private static void sink2(int[] nums, int k, int N) {
+        while((2*k+1) <= N-1) {
+            int j = 2*k+1;
+            if(j < N-1 && nums[j] < nums[j+1]) j++;
+            if(nums[k] >= nums[j]) break;
+            swap(nums, k, j);
+            k = j;
+        }
+    }
+
     private static void swap(int[] nums, int i, int j) {
         int temp = nums[i];
         nums[i] = nums[j];
@@ -107,10 +130,13 @@ public class Sort {
 
     public static void main(String[] args) {
         int[] nums = {4, 3, -1, 8, -10, -5, 15};
+        int[] nums2 = {4, 3, -1, 8, -10, -5, 15};
 //        merge_sort(nums);
 //        quick_sort(nums);
         heap_sort(nums);
+        heap_sort2(nums2);
         System.out.println(Arrays.toString(nums));
+        System.out.println(Arrays.toString(nums2));
     }
 
 }
